@@ -46,7 +46,7 @@ body {
 
 #moviePoster, #movieText {
   max-width:  100%;
-  // float:  left;
+  /* float:  left; */
 }
 
 img#moviePoster {
