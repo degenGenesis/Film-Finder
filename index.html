@@ -16,18 +16,28 @@
       <h1 id="appTitle">🍿Film Finder🍿</h1>
     </header>
     <form id="genreForm">
-      <label>Choose a genre:</label>
+      <label>Select a Genre</label>
       <select name="genres" id="genres">
       </select>
     </form>
     <button id="playBtn">Let's Play!</button>
-    <div id="movieInfo">
-      <div id="moviePoster"></div>
-      <div id="movieText"></div>
+    
+    <div class="movieInfo">
+      <div id="movieTitle"></div>      
     </div>
+    
+    <div class="movieInfo">
+      <div id="movieText"></div>      
+    </div>
+    
+    <div class="movieInfo">      
+      <div id="moviePoster"></div>
+    </div>
+    
     <div id="likeOrDislikeBtns" hidden>
       <button id="likeBtn"><i class="fa-solid fa-thumbs-up"></i></button>
       <button id="dislikeBtn"><i class="fa-solid fa-thumbs-down"></i></button>
     </div>
+    <br>
   </body>
 </html>
