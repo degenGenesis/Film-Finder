@@ -55,7 +55,7 @@ const createMoviePoster = (posterPath) => {
 
 // Create HTML for movie title
 const createMovieTitle = (title) => {
-  const titleHeader = document.createElement('h1');
+  const titleHeader = document.createElement('h2');
   titleHeader.setAttribute('id', 'movieTitle');
   titleHeader.innerHTML = title;
 
@@ -80,8 +80,8 @@ const getRandomMovie = (movies) => {
 
 // Uses the DOM to create HTML to display the movie
 const displayMovie = (movieInfo) => {
-  const moviePosterDiv = document.getElementById('moviePoster');
   const movieTextDiv = document.getElementById('movieText');
+  const moviePosterDiv = document.getElementById('moviePoster');
   const likeBtn = document.getElementById('likeBtn');
   const dislikeBtn = document.getElementById('dislikeBtn');
 
@@ -91,9 +91,9 @@ const displayMovie = (movieInfo) => {
   const overviewText = createMovieOverview(movieInfo.overview);
 
   // Append title, poster, and overview to page
-  moviePosterDiv.appendChild(moviePoster);
   movieTextDiv.appendChild(titleHeader);
   movieTextDiv.appendChild(overviewText);
+  moviePosterDiv.appendChild(moviePoster);
 
   showBtns();
   likeBtn.onclick = likeMovie;
