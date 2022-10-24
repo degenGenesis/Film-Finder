@@ -1,85 +1,109 @@
 body {
   background-image: url("https://bit.ly/3Tlgn9I");
+  background-color: #cccccc; /* Used if the image is unavailable */
+  height: auto; /* requires set a specified height */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
   color: #0a0408;
 }
 
 #appTitle {
   text-align: center;
-  margin: 0px auto;
+  margin: 20px auto;
   display: block;
   font-family: 'Staatliches', sans-serif;
-  font-size: 50px;
+  font-size: 60px;
+  color: #fff;
 }
 
 #genreForm, #playBtn {
   text-align: center;
-  margin: 0px auto;
+  margin: 20px auto;
   display: block;
   font-family: 'Fredoka One', sans-serif;
 }
 
-#movieInfo {
-  width:  65%;
-  margin:  32px auto;
+.movieInfo {
+  text-align: center;
+  width:  85%;
+  margin:  10px auto;
 }
 
-#movieInfo:after {
+.movieInfo:after {
   content:  "";
-  display:  table;
+  display:  flex;
+  justify-content: center;
   clear:  both;
 }
 
+#movieTitle {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
 #moviePoster, #movieText {
-  width:  50%;
-  float:  left;
+  max-width:  100%;
+  // float:  left;
 }
 
 img#moviePoster {
-  width:  100%;
   height:  auto;
-  display:  block;
-  margin:  auto;
+  border-radius: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 70%;
 }
 
 #movieText {
   font-family: 'Questrial';
   color: #FEFBEA;
   line-height: 1.25;
+  font-size: 10px;
 }
 
 #movieTitle, #movieOverview {
-  padding:  32px;
+  padding:  10px;
 }
 
 #playBtn {
   margin-top: 20px;
-  font-size: 25px;
-  padding: 7px 10px;
-  border-radius: 10px;
+  font-size: 20px;
+  padding: 7px 20px;
+  border-radius: 20px;
   border-style: none;
-  background-color: #B97828;
-  color: #fdc238;
+  background-color: #3bb7ed;
+  color: #fff;
   cursor:  pointer;
 }
 
 label {
+  color: #fff;
   display: block;
   font-size: 35px;
   margin-bottom: 5px;
 }
 
 select {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
   width: 200px;
-  height: auto;
+  height: 2rem;
+  border-radius: 10px;
+  font-size: 20px;
 }
 
 #likeOrDislikeBtns {
   text-align: center;
-  margin: 0px auto;  
+  margin: 20px auto;  
 }
 
 #likeBtn, #dislikeBtn {
-  padding: 15px 25px;
+  padding: 20px 25px;
   font-size: 25px;
   border-radius: 12px;
   border-style: none;
