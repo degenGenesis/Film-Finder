@@ -9,19 +9,25 @@ body {
 }
 
 #appTitle {
-  text-align: center;
+  text-align: left;
   margin: 20px auto;
   display: block;
   font-family: 'Staatliches', sans-serif;
-  font-size: 60px;
+  font-size: 1rem;
   color: #fff;
 }
 
-#genreForm, #playBtn {
+#genreForm, #movieBtn, #tvBtn {
   text-align: center;
-  margin: 20px auto;
-  display: block;
+  margin: 1.8rem 0.7rem;
+  align-content: center;
   font-family: 'Fredoka One', sans-serif;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .movieInfo {
@@ -69,11 +75,12 @@ img#moviePoster {
   padding:  10px;
 }
 
-#playBtn {
+.btn {
+  width: 200px;
   margin-top: 20px;
   font-size: 20px;
   padding: 7px 20px;
-  border-radius: 20px;
+  border-radius: 15px;
   border-style: none;
   background-color: #3bb7ed;
   color: #fff;
@@ -83,16 +90,16 @@ img#moviePoster {
 label {
   color: #fff;
   display: block;
-  font-size: 35px;
-  margin-bottom: 5px;
+  font-size: 2.6rem;
+  margin-top: 3rem;
+  margin-bottom: 20px;
 }
 
 select {
   margin-top: 20px;
-  margin-bottom: 20px;
   text-align: center;
   width: 200px;
-  height: 2rem;
+  height: 3rem;
   border-radius: 10px;
   font-size: 20px;
 }
