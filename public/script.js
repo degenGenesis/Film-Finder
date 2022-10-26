@@ -1,8 +1,10 @@
 const tmdbKey = 'YOUR_API_KEY';
 const tmdbBaseUrl = 'https://api.themoviedb.org/3';
-const playBtn = document.getElementById('playBtn');
+const movieBtn = document.getElementById('movieBtn');
+const tvBtn = document.getElementById('tvBtn');
 
-const getGenres = async () => {
+/* movies */
+const getMovieGenres = async () => {
   
   const genreRequestEndpoint = '/genre/movie/list';
   const requestParams = `?api_key=${tmdbKey}`;
@@ -12,13 +14,32 @@ const getGenres = async () => {
     const response = await fetch(urlToFetch);
     if (response.ok) {
       const jsonResponse = await response.json();
-      const genres = jsonResponse.genres;
+      const movieGenres = jsonResponse.genres;
       // console.log(genres);
-      return genres;
+      return movieGenres;
     }
   } catch(error) {
     console.log(error)
   }
+};
+
+const getTVGenres = async () => {
+    
+    const genreRequestEndpoint = '/genre/tv/list';
+    const requestParams = `?api_key=${tmdbKey}`;
+    const urlToFetch = `${tmdbBaseUrl}${genreRequestEndpoint}${requestParams}`;
+    
+    try {
+      const response = await fetch(urlToFetch);
+      if (response.ok) {
+        const jsonResponse = await response.json();
+        const tvGenres = jsonResponse.genres;
+        console.log(tvGenres);
+        return tvGenres;
+      }
+    } catch(error) {
+      console.log(error)
+    }
 };
 
 const getMovies = async () => {
@@ -72,5 +93,62 @@ const showRandomMovie = async () => {
   displayMovie(info);
 };
 
-getGenres().then(populateGenreDropdown);
-playBtn.onclick = showRandomMovie;
+/* TV */
+const getTV = async () => {
+    
+    const selectedGenre = getSelectedTVGenre();
+    const discoverTVEndpoint = '/discover/tv';
+    const requestParams = `?api_key=${tmdbKey}&with_genres=${selectedGenre}`;
+    const urlToFetch = tmdbBaseUrl + discoverTVEndpoint + requestParams;
+  
+    try {
+      const response = await fetch(urlToFetch);
+      if (response.ok) {
+        const jsonResponse = await response.json();
+        const tv = jsonResponse.results;
+        console.log(jsonResponse);   
+        return tv;      
+      }
+    } catch (error) {
+      console.log(error);
+    }
+};
+
+getTV();
+
+const getTVInfo = async (tv) => {
+  const tvId = tv.id;
+  console.log(tvId);
+  const tvEndpoint = `/tv/${tvId}`;
+  const requestParams = `?api_key=${tmdbKey}`;
+  const urlToFetch = `${tmdbBaseUrl}${tvEndpoint}${requestParams}`;
+
+  try {
+    const response = await fetch(urlToFetch);
+    if (response.ok) {
+      const jsonResponse = await response.json();
+      const tvInfo = jsonResponse;
+      console.log(jsonResponse);
+      return tvInfo;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const showRandomTV = async () => {
+  const movieInfo = document.querySelector('.movieInfo');
+  if (movieInfo.childNodes.length > 0) {
+    clearCurrentMovie();
+  };
+  const tv = await getTV();
+  const randomTV = getRandomTV(tv);
+  const info = await getTVInfo(randomTV);
+  
+  displayShow(info);
+};
+
+getMovieGenres().then(populateMovieGenres);
+getTVGenres().then(populateTVGenres);
+movieBtn.onclick = showRandomMovie;
+tvBtn.onclick = showRandomTV;
