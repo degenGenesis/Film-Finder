@@ -96,6 +96,6 @@ const displayShow = (tvInfo) => {
   tvPosterDiv.appendChild(moviePoster);
 
   showBtns();
-  likeBtn.onclick = likeMovie;
-  dislikeBtn.onclick = dislikeMovie;
+  likeBtn.onclick = likeTVShow;
+  dislikeBtn.onclick = dislikeTVShow;
 };
